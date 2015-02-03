@@ -6,7 +6,7 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 11:59:13 by jibanez           #+#    #+#              #
-#    Updated: 2015/02/03 13:09:10 by jibanez          ###   ########.fr        #
+#    Updated: 2015/02/03 14:17:49 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,8 @@ INFO = echo "Compile $< to $@ $(OK)"
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 OFLAGS =
-IFLAGS = -I$(INCDIR) -I$(LIBFT)/includes
-LFLAGS = -L$(LIBFT) -lft
+IFLAGS = -I$(INCDIR) -I$(LIBFT)/includes -I$(LIB3D)/includes
+LFLAGS = -L$(LIBFT) -lft -L$(LIB3D) -l3d
 RM = rm -rf
 
 COMPIL = $(CC) $(CFLAGS) $(OFLAGS) $(IFLAGS) -o $@ -c $<
@@ -69,12 +69,14 @@ $(OBJDIR):
 $(LIBFT):
 	make -C $(LIBFT)
 
+$(LIB3D):
+	make -C $(LIB3D)
+
 clean:
 	@$(RM) $(OBJDIR)
 	@echo "$(ORANGE)Remove $(OBJDIR) directory$(STOP_COLOR)"
 
 fclean: clean
-	make -C $(LIBFT) fclean
 	$(RM) $(NAME)
 	@echo "$(GREEN)--> [Clean!]$(STOP_COLOR)"
 

@@ -1,0 +1,3 @@
+[submodule "lib3d"]
+	path = lib3d
+	url = https://github.com/Lenemson/lib3d.git

@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_viewplane_pos.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/02 16:31:40 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/17 15:28:20 by jibanez          ###   ########.fr       */
+/*   Created: 2015/02/17 13:32:38 by jibanez           #+#    #+#             */
+/*   Updated: 2015/02/17 14:08:44 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "camera.h"
 
+/*
+** Return the 3D world position of the viewplane upper left pixel
+*/
 
-int			main(void)
+t_vertex	get_viewplane_pos()
 {
-	t_camera	camera;
+	t_vertex	viewplane_pos;
 
-	camera = get_new_camera(800, 600, 90);
-	ft_putnbr(camera.viewplane_width);
-	return (0);
+	return (viewplane_pos);
 }

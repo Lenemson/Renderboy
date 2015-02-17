@@ -6,7 +6,7 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 11:59:13 by jibanez           #+#    #+#              #
-#    Updated: 2015/02/03 14:17:49 by jibanez          ###   ########.fr        #
+#    Updated: 2015/02/17 14:50:48 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ OBJDIR = objects
 INCDIR = includes
 
 MAINDIR = $(SRCDIR)/main
+CAMDIR = $(SRCDIR)/camera
 
 # Libraries
 
@@ -39,7 +40,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 OFLAGS =
 IFLAGS = -I$(INCDIR) -I$(LIBFT)/includes -I$(LIB3D)/includes
-LFLAGS = -L$(LIBFT) -lft -L$(LIB3D) -l3d
+LFLAGS = -L$(LIBFT) -lft -L$(LIB3D) -l3d -lm
 RM = rm -rf
 
 COMPIL = $(CC) $(CFLAGS) $(OFLAGS) $(IFLAGS) -o $@ -c $<
@@ -48,15 +49,16 @@ LINK = $(CC) $(LFLAGS) -o $@ $^
 # Include sources.mk
 
 include $(MAINDIR)/sources.mk
+include $(CAMDIR)/sources.mk
 
 POBJ = $(addprefix $(OBJDIR)/, $(OBJ))
 
 
 # Rules
 
-.PHONY: all clean re fclean libft
+.PHONY: all clean re fclean lib3d libft
 
-all: $(OBJDIR) $(LIBFT) $(NAME)
+all: $(OBJDIR) $(LIB3D) $(LIBFT) $(NAME)
 
 $(NAME): $(POBJ)
 	$(LINK)

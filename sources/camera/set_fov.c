@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   set_fov.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/02 16:31:40 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/17 15:28:20 by jibanez          ###   ########.fr       */
+/*   Created: 2015/02/17 15:08:43 by jibanez           #+#    #+#             */
+/*   Updated: 2015/02/17 15:37:33 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <math.h>
 #include "camera.h"
+#define PI 3.14159265
 
+/*
+**
+*/
 
-int			main(void)
+t_camera	set_fov(t_camera camera, float fov)
 {
-	t_camera	camera;
+	float	tan_a;
+	float	oposite_side;
+	float	adjacent_side;
 
-	camera = get_new_camera(800, 600, 90);
-	ft_putnbr(camera.viewplane_width);
-	return (0);
+	tan_a = tan(((fov / 2) * PI) / 180.0);
+	oposite_side = (float) camera.viewplane_width / 2.0;
+	adjacent_side = 1 / (tan_a / oposite_side);
+	camera.view_distance = adjacent_side;
+	return (camera);
 }

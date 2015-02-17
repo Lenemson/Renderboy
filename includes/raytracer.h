@@ -6,13 +6,14 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 16:32:15 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/02 16:32:40 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/17 13:36:35 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RAYTRACER_H
 # define RAYTRACER_H
 
-
+# include "lib3d.h"
+# include "camera.h"
 
 #endif

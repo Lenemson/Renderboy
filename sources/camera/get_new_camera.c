@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_new_camera.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/02 16:31:40 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/17 15:28:20 by jibanez          ###   ########.fr       */
+/*   Created: 2015/02/17 14:22:13 by jibanez           #+#    #+#             */
+/*   Updated: 2015/02/17 15:16:26 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "camera.h"
 
-
-int			main(void)
+t_camera		get_new_camera(int width, int height, float fov)
 {
 	t_camera	camera;
 
-	camera = get_new_camera(800, 600, 90);
-	ft_putnbr(camera.viewplane_width);
-	return (0);
+	camera.viewplane_width = width;
+	camera.viewplane_height = height;
+	camera.view_distance = 0.0;
+	camera = set_fov(camera, fov);
+	camera.pos_x = 0;
+	camera.pos_y = 0;
+	camera.pos_z = 0;
+	camera.forward.x = 0;
+	camera.forward.y = 0;
+	camera.forward.z = -1;
+	camera.forward = normalize(camera.forward);
+	return (camera);
 }

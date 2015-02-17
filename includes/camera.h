@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:20:45 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/17 16:47:26 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/17 17:14:26 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_camera	t_camera;
 
 t_camera		get_new_camera(int width, int height);
 t_camera		set_fov(t_camera camera, float fov);
+t_camera		set_camera_pos(t_camera camera, int x, int y, int z);
 t_vertex		get_viewplane_pos(t_camera camera);
 
 #endif

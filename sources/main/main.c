@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 16:31:40 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/18 16:04:52 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/18 16:20:51 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static int		raytracer(t_camera camera, int width, int height)
 		up = mult_vector(camera.up, (float) y * camera.y_indent);
 		while (x < width)
 		{
-			printf("x=%f,y=%f\n", x * camera.x_indent, y * camera.y_indent);////
 			right = mult_vector(camera.right, (float) x * camera.x_indent);
 			camera.viewplane = vector_sum(camera.viewplane, right);
 			camera.viewplane = vector_diff(camera.viewplane, up);
@@ -57,7 +56,9 @@ static int		raytracer(t_camera camera, int width, int height)
 
 static t_camera	init_camera(t_camera camera)
 {
-	camera = get_new_camera(2, 2, 60);
+	camera = get_new_camera(2, 2);
+	camera = set_fov(camera, 60);
+	camera = set_indent(camera, SCR_WIDTH, SCR_HEIGHT);
 	camera = set_camera_pos(camera, 0, 0, 0);
 	camera.viewplane = get_viewplane_pos(camera);
 	return (camera);

@@ -6,14 +6,14 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 12:16:09 by jibanez           #+#    #+#              #
-#    Updated: 2015/02/18 15:53:00 by jibanez          ###   ########.fr        #
+#    Updated: 2015/02/18 15:54:59 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-MAIN = main.c
+RENDER = render.c
 
-OBJ += $(MAIN:.c=.o)
+OBJ += $(RENDER:.c=.o)
 
-$(OBJDIR)/%.o: $(MAINDIR)/%.c
+$(OBJDIR)/%.o: $(RENDERDIR)/%.c
 	$(COMPIL)
 	$(INFO)

@@ -6,7 +6,7 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 11:59:13 by jibanez           #+#    #+#              #
-#    Updated: 2015/02/17 14:50:48 by jibanez          ###   ########.fr        #
+#    Updated: 2015/02/18 15:55:33 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ INCDIR = includes
 
 MAINDIR = $(SRCDIR)/main
 CAMDIR = $(SRCDIR)/camera
+RENDERDIR = $(SRCDIR)/render
 
 # Libraries
 
@@ -50,6 +51,7 @@ LINK = $(CC) $(LFLAGS) -o $@ $^
 
 include $(MAINDIR)/sources.mk
 include $(CAMDIR)/sources.mk
+include $(RENDERDIR)/sources.mk
 
 POBJ = $(addprefix $(OBJDIR)/, $(OBJ))
 

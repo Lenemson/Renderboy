@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:20:45 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/18 14:11:34 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/18 15:13:52 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ struct			s_camera
 	t_vector	forward;
 	t_vector	up;
 	t_vector	right;
-	t_vertex	viewplane;
 	t_vertex	pos;
+	t_vertex	viewplane;
 };
 
 typedef struct s_camera	t_camera;

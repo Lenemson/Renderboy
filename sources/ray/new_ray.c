@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raytracer.h                                        :+:      :+:    :+:   */
+/*   new_ray.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/02 16:32:15 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/18 16:31:19 by jibanez          ###   ########.fr       */
+/*   Created: 2015/02/18 17:00:51 by jibanez           #+#    #+#             */
+/*   Updated: 2015/02/18 17:06:54 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAYTRACER_H
-# define RAYTRACER_H
+#include "ray.h"
 
-#endif
+t_ray		new_ray(t_vertex o, t_vector dir)
+{
+	t_ray	ray;
+
+	ray.o = o;
+	ray.dir = dir;
+	ray.t = 0;
+	return (ray);
+}

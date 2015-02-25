@@ -6,28 +6,31 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 16:31:40 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/25 12:32:04 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/25 14:54:52 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "camera.h"
-#include "ray.h"
+#include "intersect.h"
 #include <stdio.h>/////
 
 static int		process(t_camera camera)
 {
 	t_ray		ray;
 	t_vector	dir;
-	float		t;
+	t_sphere	s;
 
+	s.center = new_vector(0, 0, -300);
+	s.radius = 100;
+	s.sqr_radius = 100 * 100;
 	dir = vector_diff(camera.viewplane_current, camera.pos);
 	dir = normalize(dir);
 	ray = new_ray(camera.pos, dir);
-	(void)ray;
-	// RAYCAST // t = raycast(camera.pos, dir);
-	// RENDER
-	(void)t;
+	if (intersect_sphere(ray, s))
+	{
+		// RENDER(x, y)
+	}
 	return (0);
 }
 
@@ -48,9 +51,6 @@ static int		raytracer(t_camera camera, int res_x, int res_y)
 			right = mult_vector(camera.right, (float) x * camera.x_indent);
 			camera.viewplane_current = vector_sum(camera.viewplane, right);
 			camera.viewplane_current = vector_diff(camera.viewplane_current, up);
-			printf("(%d,%d) ", x, y);///
-			printf("(%f,%f)\n", camera.viewplane_current.x,
-					camera.viewplane_current.y);///
 			if (process(camera) == 1)
 				return (1);
 			x++;

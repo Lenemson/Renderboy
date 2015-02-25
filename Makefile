@@ -6,11 +6,11 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 11:59:13 by jibanez           #+#    #+#              #
-#    Updated: 2015/02/25 09:27:33 by jibanez          ###   ########.fr        #
+#    Updated: 2015/02/25 10:00:11 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = raytracer
+NAME = renderboy
 
 # Directories
 

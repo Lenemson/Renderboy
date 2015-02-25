@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:20:45 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/18 16:27:14 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/25 10:15:10 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ struct			s_camera
 
 typedef struct s_camera	t_camera;
 
-t_camera		get_new_camera(float width, float height);
+t_camera		get_new_camera(float res_x, float res_y);
 t_camera		set_fov(t_camera camera, float fov);
 t_camera		set_indent(t_camera camera, float res_x, float res_y);
 t_camera		set_camera_pos(t_camera camera, int x, int y, int z);

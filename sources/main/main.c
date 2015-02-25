@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 16:31:40 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/25 10:17:58 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/25 11:24:38 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int		process(t_camera camera)
 	t_vector	dir;
 	float		t;
 
-	dir = vector_diff(camera.viewplane, camera.pos);
+	dir = vector_diff(camera.viewplane_current, camera.pos);
 	dir = normalize(dir);
 	ray = new_ray(camera.pos, dir);
 	(void)ray;
@@ -40,16 +40,18 @@ static int		raytracer(t_camera camera, int res_x, int res_y)
 
 	x = 0;
 	y = 0;
-	while (y < res_y)
+	while (y < 30 /*res_y*/)
 	{
 		up = mult_vector(camera.up, (float) y * camera.y_indent);
-		while (x < res_x)
+		//printf("up(%f,%f,%f)\n", up.x, up.y, up.z);//
+		while (x < 30 /*res_x*/)
 		{
-			//printf("(%d,%d)\n", x, y);///
+			printf("(%d,%d) ", x, y);///
 			right = mult_vector(camera.right, (float) x * camera.x_indent);
-			camera.viewplane = vector_sum(camera.viewplane, right);
-			camera.viewplane = vector_diff(camera.viewplane, up);
-			//printf("(%f,%f)\n", camera.viewplane.x, camera.viewplane.y);///
+			camera.viewplane_current = vector_sum(camera.viewplane, right);
+			camera.viewplane_current = vector_diff(camera.viewplane, up);
+			printf("(%f,%f)\n", camera.viewplane_current.x,
+					camera.viewplane_current.y);///
 			if (process(camera) == 1)
 				return (1);
 			x++;
@@ -60,21 +62,11 @@ static int		raytracer(t_camera camera, int res_x, int res_y)
 	return (0);
 }
 
-static t_camera	init_camera(t_camera camera, float res_x, float res_y)
-{
-	camera = get_new_camera(res_x, res_y);
-	camera = set_fov(camera, 60);
-	camera = set_indent(camera, res_x, res_y);
-	camera = set_camera_pos(camera, 0, 0, 0);
-	camera.viewplane = get_viewplane_pos(camera);
-	return (camera);
-}
-
 int				main(void)
 {
 	t_camera	camera;
 
-	camera = init_camera(camera, SCR_WIDTH, SCR_HEIGHT);
+	camera = get_new_camera(400, 400, 60);
 	printf("viewplaneWidth=%f,viewplaneHeight=%f\n", camera.viewplane_width,
 			camera.viewplane_height);////
 	printf("viewDistance=%f\n", camera.view_distance);////

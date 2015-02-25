@@ -6,11 +6,12 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 12:16:09 by jibanez           #+#    #+#              #
-#    Updated: 2015/02/24 15:45:31 by jibanez          ###   ########.fr        #
+#    Updated: 2015/02/25 14:38:45 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-INTERSECT = sphere.c
+INTERSECT = sphere.c \
+			solve_quadratic.c
 
 OBJ += $(INTERSECT:.c=.o)
 

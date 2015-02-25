@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sphere.c                                           :+:      :+:    :+:   */
+/*   solve_quadratic.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/24 15:46:47 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/25 14:39:13 by jibanez          ###   ########.fr       */
+/*   Created: 2015/02/25 14:03:57 by jibanez           #+#    #+#             */
+/*   Updated: 2015/02/25 14:40:22 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "intersect.h"
+#include <math.h>
 
-int		intersect_sphere(t_ray ray, t_sphere sphere)
+t_result		solve_quadratic(float a, float b, float c)
 {
 	t_result	res;
-	t_vector	rs;
-	float		a;
-	float		b;
-	float		c;
+	float		discr;
+	float		q;
 
-	rs = vector_diff(ray.o, sphere.center);
-	a = dot_product(ray.dir, ray.dir);
-	b = 2 * dot_product(ray.dir, rs);
-	c = dot_product(rs, rs) - sphere.sqr_radius;
-	res = solve_quadratic(a, b, c);
-	if (res.n == 0)
-		return (0);
-	return (1);
+	res.n = 0;
+	discr = (b * b) - (4 * a * c);
+	if (discr < 0)
+		return (res);
+	else if (discr == 0)
+	{
+		res.t0 = (-0.5 * b) / a;
+		res.n = 1;
+	}
+	else
+	{
+		q = (b > 0 ? (b + sqrt(discr)) : (b - sqrt(discr)));
+		q *= -0.5;
+		res.t0 = q / a;
+		res.t1 = c / q;
+		res.n = 2;
+	}
+	return (res);
 }

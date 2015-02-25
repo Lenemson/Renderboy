@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 16:31:40 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/25 11:24:38 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/25 12:32:04 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,15 @@ static int		raytracer(t_camera camera, int res_x, int res_y)
 
 	x = 0;
 	y = 0;
-	while (y < 30 /*res_y*/)
+	while (y < res_y)
 	{
 		up = mult_vector(camera.up, (float) y * camera.y_indent);
-		//printf("up(%f,%f,%f)\n", up.x, up.y, up.z);//
-		while (x < 30 /*res_x*/)
+		while (x < res_x)
 		{
-			printf("(%d,%d) ", x, y);///
 			right = mult_vector(camera.right, (float) x * camera.x_indent);
 			camera.viewplane_current = vector_sum(camera.viewplane, right);
-			camera.viewplane_current = vector_diff(camera.viewplane, up);
+			camera.viewplane_current = vector_diff(camera.viewplane_current, up);
+			printf("(%d,%d) ", x, y);///
 			printf("(%f,%f)\n", camera.viewplane_current.x,
 					camera.viewplane_current.y);///
 			if (process(camera) == 1)
@@ -66,7 +65,7 @@ int				main(void)
 {
 	t_camera	camera;
 
-	camera = get_new_camera(400, 400, 60);
+	camera = get_new_camera(SCR_WIDTH, SCR_HEIGHT, 60);
 	printf("viewplaneWidth=%f,viewplaneHeight=%f\n", camera.viewplane_width,
 			camera.viewplane_height);////
 	printf("viewDistance=%f\n", camera.view_distance);////

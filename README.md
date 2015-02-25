@@ -1,2 +1,2 @@
-# raytracer
-Implementation of a raytracer - 42 School project
+# Renderboy
+Work in progress implementation of a raytracer - 42 School project

@@ -6,7 +6,7 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 11:59:13 by jibanez           #+#    #+#              #
-#    Updated: 2015/02/24 15:47:28 by jibanez          ###   ########.fr        #
+#    Updated: 2015/02/25 09:27:33 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,11 @@ CAMDIR = $(SRCDIR)/camera
 RENDERDIR = $(SRCDIR)/render
 RAYDIR = $(SRCDIR)/ray
 INTERSECTDIR = $(SRCDIR)/intersect
+VECTORDIR = $(SRCDIR)/vector
 
 # Libraries
 
 LIBFT = libft
-LIB3D = lib3d
 
 # Format
 
@@ -35,15 +35,15 @@ GREEN = \x1b[32;01m
 ORANGE = \x1b[33;01m
 STOP_COLOR = \x1b[0m
 OK = $(GREEN)--> [OK]$(STOP_COLOR)
-INFO = echo "Compile $< to $@ $(OK)"
+INFO = @echo "Compile $< to $@ $(OK)"
 
 # Compilation / Linking
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 OFLAGS =
-IFLAGS = -I$(INCDIR) -I$(LIBFT)/includes -I$(LIB3D)/includes
-LFLAGS = -L$(LIBFT) -lft -L$(LIB3D) -l3d -lm
+IFLAGS = -I$(INCDIR) -I$(LIBFT)/includes
+LFLAGS = -L$(LIBFT) -lft -lm
 RM = rm -rf
 
 COMPIL = $(CC) $(CFLAGS) $(OFLAGS) $(IFLAGS) -o $@ -c $<
@@ -56,15 +56,16 @@ include $(CAMDIR)/sources.mk
 include $(RENDERDIR)/sources.mk
 include $(RAYDIR)/sources.mk
 include $(INTERSECTDIR)/sources.mk
+include $(VECTORDIR)/sources.mk
 
 POBJ = $(addprefix $(OBJDIR)/, $(OBJ))
 
 
 # Rules
 
-.PHONY: all clean re fclean lib3d libft
+.PHONY: all clean re fclean libft
 
-all: $(OBJDIR) $(LIB3D) $(LIBFT) $(NAME)
+all: $(OBJDIR) $(LIBFT) $(NAME)
 
 $(NAME): $(POBJ)
 	$(LINK)
@@ -76,9 +77,6 @@ $(OBJDIR):
 
 $(LIBFT):
 	make -C $(LIBFT)
-
-$(LIB3D):
-	make -C $(LIB3D)
 
 clean:
 	@$(RM) $(OBJDIR)

@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raytracer.h                                        :+:      :+:    :+:   */
+/*   init_gfx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/02 16:32:15 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/26 11:19:54 by jibanez          ###   ########.fr       */
+/*   Created: 2015/02/26 11:08:39 by jibanez           #+#    #+#             */
+/*   Updated: 2015/02/26 11:16:40 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAYTRACER_H
-# define RAYTRACER_H
+#include "render.h"
+#include <mlx.h>
 
-# include "render.h"
-
-struct					s_scene
+t_env		init_gfx(float res_x, float res_y, char *win_name)
 {
-	t_env				gfx;
-	t_camera			camera;
-};
+	t_env	env;
 
-typedef struct s_scene	t_scene;
-
-int				raytracer(t_scene scene, int res_x, int res_y);
-
-#endif
+	env.mlx = mlx_init();
+	env.win = mlx_new_window(env.mlx, res_x, res_y, win_name);
+	return (env);
+}

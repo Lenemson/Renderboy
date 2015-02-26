@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 16:32:15 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/26 11:19:54 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/26 12:08:47 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ struct					s_scene
 
 typedef struct s_scene	t_scene;
 
-int				raytracer(t_scene scene, int res_x, int res_y);
+int				raytracer(t_scene *scene);
 
 #endif

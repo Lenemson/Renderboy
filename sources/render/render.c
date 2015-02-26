@@ -6,14 +6,15 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:55:07 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/18 16:04:24 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/26 12:25:21 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <mlx.h>
 #include "render.h"
 
-int		render(t_camera camera)
+int		render(t_env gfx, int x, int y)
 {
-	(void)camera;
+	mlx_pixel_put(gfx.mlx, gfx.win, x, y, 123456);
 	return (0);
 }

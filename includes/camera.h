@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:20:45 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/25 12:31:58 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/26 12:00:26 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ struct			s_camera
 	float		view_distance;
 	t_vertex	viewplane;
 	t_vertex	viewplane_current;
+	float		res_x;
+	float		res_y;
 	float		x_indent;
 	float		y_indent;
 };

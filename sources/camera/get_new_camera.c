@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 14:22:13 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/25 11:16:37 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/26 12:01:00 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ t_camera	get_new_camera(float res_x, float res_y, float fov)
 	camera.viewplane_width = 2 * (res_x / res_y);
 	camera.viewplane_height = 2;
 	camera = set_fov(camera, fov);
+	camera.res_x = res_x;
+	camera.res_y = res_y;
 	camera.x_indent = camera.viewplane_width / res_x;
 	camera.y_indent = camera.viewplane_height / res_y;
 	return (camera);

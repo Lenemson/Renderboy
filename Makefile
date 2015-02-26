@@ -6,7 +6,7 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 11:59:13 by jibanez           #+#    #+#              #
-#    Updated: 2015/02/25 10:00:11 by jibanez          ###   ########.fr        #
+#    Updated: 2015/02/26 11:07:02 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ RENDERDIR = $(SRCDIR)/render
 RAYDIR = $(SRCDIR)/ray
 INTERSECTDIR = $(SRCDIR)/intersect
 VECTORDIR = $(SRCDIR)/vector
+
+MLXDIR = /usr/X11/lib
 
 # Libraries
 
@@ -43,7 +45,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 OFLAGS =
 IFLAGS = -I$(INCDIR) -I$(LIBFT)/includes
-LFLAGS = -L$(LIBFT) -lft -lm
+LFLAGS = -L$(LIBFT) -lft -lm -L$(MLXDIR) -lmlx -lXext -lX11
 RM = rm -rf
 
 COMPIL = $(CC) $(CFLAGS) $(OFLAGS) $(IFLAGS) -o $@ -c $<

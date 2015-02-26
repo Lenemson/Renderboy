@@ -6,11 +6,12 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 12:16:09 by jibanez           #+#    #+#              #
-#    Updated: 2015/02/26 11:20:59 by jibanez          ###   ########.fr        #
+#    Updated: 2015/02/26 14:19:51 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 MAIN = main.c \
+	   get_objects.c \
 	   raytracer.c
 
 OBJ += $(MAIN:.c=.o)

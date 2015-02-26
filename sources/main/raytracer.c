@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 11:17:28 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/26 12:27:36 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/26 14:36:13 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,21 @@
 
 static int		process(t_scene *scene, int x, int y)
 {
+	int			i;
 	t_ray		ray;
 	t_vector	dir;
-	t_sphere	s;
 
-	s.center = new_vector(400, 55, -1000);
-	s.radius = 100;
-	s.sqr_radius = 100 * 100;
 	dir = vector_diff(scene->camera.viewplane_current, scene->camera.pos);
 	dir = normalize(dir);
 	ray = new_ray(scene->camera.pos, dir);
-	if (intersect_sphere(ray, s))
-		render(scene->gfx, x, y);
+	i = 0;
+	while (i < scene->n_objects)
+	{
+		if (((t_sphere *) (scene->objects[i]))->type == 1
+				&& intersect_sphere(ray, (t_sphere *) scene->objects[i]))
+			render(scene->gfx, x, y);
+		i++;
+	}
 	return (0);
 }
 

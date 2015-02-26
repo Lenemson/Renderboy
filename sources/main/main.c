@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 16:31:40 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/26 12:21:06 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/26 14:20:21 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int				main(void)
 {
 	t_scene		scene;
 
+	scene = get_objects(scene);
 	scene.camera = get_new_camera(SCR_WIDTH, SCR_HEIGHT, 60);
 	scene.gfx = init_gfx(SCR_WIDTH, SCR_HEIGHT, "raytracer");
 

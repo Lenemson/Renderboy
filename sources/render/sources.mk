@@ -6,12 +6,15 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 12:16:09 by jibanez           #+#    #+#              #
-#    Updated: 2015/02/26 11:14:58 by jibanez          ###   ########.fr        #
+#    Updated: 2015/02/28 14:38:00 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-RENDER = render.c \
-		 init_gfx.c
+RENDER = init_gfx.c \
+		 render.c \
+		 ray.c \
+		 trace.c \
+		 put_pixel.c
 
 OBJ += $(RENDER:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 10:47:37 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/25 10:55:29 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/28 15:05:54 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ t_camera		set_viewplane_pos(t_camera camera)
 	camera.viewplane = vector_sum(camera.viewplane, forward_transform);
 	camera.viewplane = vector_sum(camera.viewplane, up_transform);
 	camera.viewplane = vector_diff(camera.viewplane, right_transform);
-	camera.viewplane_current = camera.viewplane;
 	return (camera);
 }

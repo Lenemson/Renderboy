@@ -6,14 +6,14 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/24 15:45:56 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/26 14:29:24 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/28 14:21:26 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INTERSECT_H
 # define INTERSECT_H
 
-# include "ray.h"
+# include "render.h"
 
 struct			s_result
 {

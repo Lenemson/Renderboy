@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray.h                                              :+:      :+:    :+:   */
+/*   put_pixel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/18 17:02:09 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/18 17:05:16 by jibanez          ###   ########.fr       */
+/*   Created: 2015/02/28 14:05:10 by jibanez           #+#    #+#             */
+/*   Updated: 2015/02/28 14:25:52 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAY_H
-# define RAY_H
+#include <mlx.h>
+#include "render.h"
 
-# include "vector.h"
-
-struct			s_ray
+int			put_pixel(t_env gfx, int x, int y, int color)
 {
-	t_vertex	o;
-	t_vector	dir;
-	float		t;
-};
-
-typedef struct s_ray	t_ray;
-
-t_ray			new_ray(t_vertex o, t_vector dir);
-
-#endif
+	return (mlx_pixel_put(gfx.mlx, gfx.win, x, y, color));
+}

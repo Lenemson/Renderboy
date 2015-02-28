@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 14:14:32 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/28 14:24:31 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/28 15:32:20 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ t_scene			get_objects(t_scene scene)
 	s2->radius = 50;
 	s2->sqr_radius = 50 * 50;
 	scene.n_objects = 2;
-	scene.objects[0] = (void *) s1;
-	scene.objects[1] = (void *) s2;
+	scene.objects[0] = (void *)s1;
+	scene.objects[1] = (void *)s2;
 	scene.objects[2] = NULL;
 	return (scene);
 }

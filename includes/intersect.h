@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/24 15:45:56 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/28 14:21:26 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/28 15:33:55 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ struct			s_sphere
 
 typedef struct s_sphere	t_sphere;
 typedef struct s_result	t_result;
-
 
 int				intersect_sphere(t_ray ray, t_sphere *sphere);
 t_result		solve_quadratic(float a, float b, float c);

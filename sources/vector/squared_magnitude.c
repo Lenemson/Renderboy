@@ -6,13 +6,13 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/06 12:47:12 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/18 13:00:52 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/02/28 15:25:45 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
-float		squared_magnitude(const t_vector v)
+float		squared_magnitude(t_vector const v)
 {
 	return ((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
 }

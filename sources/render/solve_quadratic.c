@@ -6,11 +6,11 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 14:03:57 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/25 14:40:22 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/03/04 13:01:56 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "intersect.h"
+#include "render.h"
 #include <math.h>
 
 t_result		solve_quadratic(float a, float b, float c)

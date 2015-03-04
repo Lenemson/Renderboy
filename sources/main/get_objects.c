@@ -6,12 +6,12 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 14:14:32 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/28 15:32:20 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/03/04 13:01:30 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "intersect.h"
+#include "render.h"
 #include "raytracer.h"
 
 t_scene			get_objects(t_scene scene)

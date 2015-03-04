@@ -6,11 +6,10 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 16:09:01 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/28 15:33:26 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/03/04 13:01:42 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "intersect.h"
 #include "render.h"
 
 int			trace(t_ray ray, void *objects[100])

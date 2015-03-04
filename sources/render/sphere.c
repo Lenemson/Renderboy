@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intersect.h                                        :+:      :+:    :+:   */
+/*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/24 15:45:56 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/28 15:33:55 by jibanez          ###   ########.fr       */
+/*   Created: 2015/02/24 15:46:47 by jibanez           #+#    #+#             */
+/*   Updated: 2015/03/04 13:02:08 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERSECT_H
-# define INTERSECT_H
+#include "render.h"
 
-# include "render.h"
-
-struct			s_result
+int		intersect_sphere(t_ray ray, t_sphere *sphere)
 {
-	int			n;
-	float		t0;
-	float		t1;
-};
+	t_result	res;
+	t_vector	rs;
+	float		a;
+	float		b;
+	float		c;
 
-struct			s_sphere
-{
-	int			type;
-	t_vertex	center;
-	float		radius;
-	float		sqr_radius;
-};
-
-typedef struct s_sphere	t_sphere;
-typedef struct s_result	t_result;
-
-int				intersect_sphere(t_ray ray, t_sphere *sphere);
-t_result		solve_quadratic(float a, float b, float c);
-
-#endif
+	rs = vector_diff(ray.o, sphere->center);
+	a = dot_product(ray.dir, ray.dir);
+	b = 2 * dot_product(ray.dir, rs);
+	c = dot_product(rs, rs) - sphere->sqr_radius;
+	res = solve_quadratic(a, b, c);
+	if (res.n == 0)
+		return (0);
+	return (1);
+}

@@ -6,23 +6,31 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 16:09:01 by jibanez           #+#    #+#             */
-/*   Updated: 2015/03/04 13:01:42 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/03/04 16:15:27 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 
-int			trace(t_ray ray, void *objects[100])
+int			trace(t_object object[100], int const n, t_ray const ray)
 {
-	int		i;
+	t_object	hit;
+	float		t;
+	float		tmp;
+	int			i;
 
 	i = 0;
-	while (objects[i] != 0)
+	t = 1000000000;
+	hit.color = 0x000000;
+	while (i < n)
 	{
-		if (((t_sphere *)objects[i])->type == 1
-				&& intersect_sphere(ray, (t_sphere *)objects[i]))
-			return (123456);
+		tmp = object[i].intersect(object[i], ray);
+		if (tmp > 0 && tmp < t)
+		{
+			t = tmp;
+			hit = object[i];
+		}
 		i++;
 	}
-	return (0);
+	return (hit.color);
 }

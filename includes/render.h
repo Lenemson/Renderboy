@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:58:06 by jibanez           #+#    #+#             */
-/*   Updated: 2015/03/04 14:41:32 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/03/05 16:05:33 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 # include "camera.h"
 
 typedef struct s_env	t_env;
-typedef struct s_scene	t_scene;
 typedef struct s_ray	t_ray;
 typedef struct s_sphere	t_sphere;
-typedef struct s_result	t_result;
+typedef struct s_plane	t_plane;
 typedef union u_shape	t_shape;
+typedef union u_color	t_color;
 typedef struct s_object	t_object;
+typedef struct s_scene	t_scene;
 
 struct					s_env
 {
@@ -42,16 +43,27 @@ struct					s_sphere
 	float				sqr_radius;
 };
 
+struct					s_plane
+{
+	t_vector			normal;
+};
+
 union					u_shape
 {
 	t_sphere			sphere;
+};
+
+union					u_color
+{
+	unsigned int		val;
+	unsigned char		rgb[4];
 };
 
 struct					s_object
 {
 	t_vertex			pos;
 	t_shape				shape;
-	int					color;
+	t_color				color;
 	float				(*intersect)(t_object const object, t_ray const ray);
 };
 
@@ -72,9 +84,14 @@ t_ray					new_ray(t_vertex o, t_vector dir);
 t_ray					construct_ray(t_camera const camera,
 										t_vector const up,
 										int const x);
+t_color					new_color(unsigned char r,
+									unsigned char g,
+									unsigned char b);
 int						put_pixel(t_env gfx, int x, int y, int color);
 
 float					intersect_sphere(t_object const object,
+											t_ray const ray);
+float					intersect_plane(t_object const object,
 											t_ray const ray);
 float					solve_quadratic(float a, float b, float c);
 

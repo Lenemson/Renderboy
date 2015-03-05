@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   trace.c                                            :+:      :+:    :+:   */
+/*   plane.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/26 16:09:01 by jibanez           #+#    #+#             */
-/*   Updated: 2015/03/05 15:05:50 by jibanez          ###   ########.fr       */
+/*   Created: 2015/03/05 16:03:57 by jibanez           #+#    #+#             */
+/*   Updated: 2015/03/05 16:37:12 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 
-int			trace(t_object object[100], int const n, t_ray const ray)
+float		intersect_plane(t_object const object, t_ray const t_ray)
 {
-	t_object	hit;
-	float		t;
-	float		tmp;
-	int			i;
-
-	i = 0;
-	t = 1000000000;
-	hit.color = new_color(0, 0, 0);
-	while (i < n)
-	{
-		tmp = object[i].intersect(object[i], ray);
-		if (tmp > 0 && tmp < t)
-		{
-			t = tmp;
-			hit = object[i];
-		}
-		i++;
-	}
-	return (hit.color.val);
+	
 }

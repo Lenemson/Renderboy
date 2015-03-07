@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:58:06 by jibanez           #+#    #+#             */
-/*   Updated: 2015/03/05 16:05:33 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/03/07 14:21:39 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ struct					s_plane
 union					u_shape
 {
 	t_sphere			sphere;
+	t_plane				plane;
 };
 
 union					u_color

@@ -6,7 +6,7 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 11:59:13 by jibanez           #+#    #+#              #
-#    Updated: 2015/03/21 16:39:48 by jibanez          ###   ########.fr        #
+#    Updated: 2015/03/21 16:48:05 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,9 +41,9 @@ INFO = @echo "Compile $< to $@ $(OK)"
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 OFLAGS =
-IFLAGS = -I$(INCDIR) -I$(LIBFT)/includes -I$(MLXDIR)
+IFLAGS = -I$(INCDIR) -I$(LIBFT)/includes -I$(MLX)
 LFLAGS = -L$(LIBFT) -lft -lm \
-		 -L$(MLXDIR) -lmlx -framework OpenGL -framework AppKit
+		 -L$(MLX) -lmlx -framework OpenGL -framework AppKit
 RM = rm -rf
 
 COMPIL = $(CC) $(CFLAGS) $(OFLAGS) $(IFLAGS) -o $@ -c $<
@@ -61,9 +61,9 @@ POBJ = $(addprefix $(OBJDIR)/, $(OBJ))
 
 # Rules
 
-.PHONY: all clean re fclean libft
+.PHONY: all clean re fclean libft minilibx_macos
 
-all: $(OBJDIR) $(LIBFT) $(NAME)
+all: $(OBJDIR) $(LIBFT) $(MLX) $(NAME)
 
 $(NAME): $(POBJ)
 	$(LINK)

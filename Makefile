@@ -6,7 +6,7 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 11:59:13 by jibanez           #+#    #+#              #
-#    Updated: 2015/03/04 13:01:11 by jibanez          ###   ########.fr        #
+#    Updated: 2015/03/21 16:39:48 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,10 @@ CAMDIR = $(SRCDIR)/camera
 RENDERDIR = $(SRCDIR)/render
 VECTORDIR = $(SRCDIR)/vector
 
-MLXDIR = /usr/X11/lib
-
 # Libraries
 
 LIBFT = libft
+MLX = minilibx_macos
 
 # Format
 
@@ -42,8 +41,9 @@ INFO = @echo "Compile $< to $@ $(OK)"
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 OFLAGS =
-IFLAGS = -I$(INCDIR) -I$(LIBFT)/includes
-LFLAGS = -L$(LIBFT) -lft -lm -L$(MLXDIR) -lmlx -lXext -lX11
+IFLAGS = -I$(INCDIR) -I$(LIBFT)/includes -I$(MLXDIR)
+LFLAGS = -L$(LIBFT) -lft -lm \
+		 -L$(MLXDIR) -lmlx -framework OpenGL -framework AppKit
 RM = rm -rf
 
 COMPIL = $(CC) $(CFLAGS) $(OFLAGS) $(IFLAGS) -o $@ -c $<
@@ -75,6 +75,9 @@ $(OBJDIR):
 
 $(LIBFT):
 	make -C $(LIBFT)
+
+$(MLX):
+	make -C $(MLX)
 
 clean:
 	@$(RM) $(OBJDIR)

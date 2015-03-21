@@ -6,12 +6,11 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/05 16:03:57 by jibanez           #+#    #+#             */
-/*   Updated: 2015/03/07 16:27:16 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/03/21 16:08:15 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
-#include <stdio.h>///
 
 float		intersect_plane(t_object const object, t_ray const ray)
 {

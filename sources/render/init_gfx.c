@@ -6,12 +6,12 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 11:08:39 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/26 11:16:40 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/03/21 16:07:25 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
-#include <mlx.h>
+#include "mlx.h"
 
 t_env		init_gfx(float res_x, float res_y, char *win_name)
 {

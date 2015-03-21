@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 16:31:40 by jibanez           #+#    #+#             */
-/*   Updated: 2015/03/21 16:37:32 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/03/21 17:22:17 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int				main(void)
 	t_scene		scene;
 
 	scene = get_objects(scene);
-	scene.camera = get_new_camera(SCR_WIDTH, SCR_HEIGHT, 60);
+	scene.camera = get_new_camera(SCR_WIDTH, SCR_HEIGHT, 90);
 	scene.gfx = init_gfx(SCR_WIDTH, SCR_HEIGHT, "raytracer");
 	mlx_key_hook(scene.gfx.win, keybinds, &scene);
 	mlx_expose_hook(scene.gfx.win, render, &scene);

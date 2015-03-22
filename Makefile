@@ -6,7 +6,7 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 11:59:13 by jibanez           #+#    #+#              #
-#    Updated: 2015/03/21 16:48:05 by jibanez          ###   ########.fr        #
+#    Updated: 2015/03/22 10:43:24 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ VECTORDIR = $(SRCDIR)/vector
 # Libraries
 
 LIBFT = libft
-MLX = minilibx_macos
 
 # Format
 
@@ -41,9 +40,9 @@ INFO = @echo "Compile $< to $@ $(OK)"
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 OFLAGS =
-IFLAGS = -I$(INCDIR) -I$(LIBFT)/includes -I$(MLX)
+IFLAGS = -I$(INCDIR) -I$(LIBFT)/includes
 LFLAGS = -L$(LIBFT) -lft -lm \
-		 -L$(MLX) -lmlx -framework OpenGL -framework AppKit
+		 -lmlx -framework OpenGL -framework AppKit
 RM = rm -rf
 
 COMPIL = $(CC) $(CFLAGS) $(OFLAGS) $(IFLAGS) -o $@ -c $<
@@ -61,9 +60,9 @@ POBJ = $(addprefix $(OBJDIR)/, $(OBJ))
 
 # Rules
 
-.PHONY: all clean re fclean libft minilibx_macos
+.PHONY: all clean re fclean libft
 
-all: $(OBJDIR) $(LIBFT) $(MLX) $(NAME)
+all: $(OBJDIR) $(LIBFT) $(NAME)
 
 $(NAME): $(POBJ)
 	$(LINK)
@@ -75,9 +74,6 @@ $(OBJDIR):
 
 $(LIBFT):
 	make -C $(LIBFT)
-
-$(MLX):
-	make -C $(MLX)
 
 clean:
 	@$(RM) $(OBJDIR)

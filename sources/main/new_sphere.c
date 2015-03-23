@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   new_sphere.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/05 14:29:45 by jibanez           #+#    #+#             */
-/*   Updated: 2015/03/22 14:22:39 by jibanez          ###   ########.fr       */
+/*   Created: 2015/03/22 14:04:29 by jibanez           #+#    #+#             */
+/*   Updated: 2015/03/22 14:05:13 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 
-t_color			new_color(unsigned char r, unsigned char g, unsigned char b)
+t_object	new_sphere()
 {
-	t_color		new;
 
-	new.rgb[0] = b;
-	new.rgb[1] = g;
-	new.rgb[2] = r;
-	new.rgb[3] = 0;
-	return (new);
 }

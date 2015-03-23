@@ -5,24 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/02/03 12:16:09 by jibanez           #+#    #+#              #
-#    Updated: 2015/03/22 10:47:41 by jibanez          ###   ########.fr        #
+#    Created: 2015/03/22 14:53:37 by jibanez           #+#    #+#              #
+#    Updated: 2015/03/23 17:27:32 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-RENDER = init_gfx.c \
-		 render.c \
-		 ray.c \
-		 trace.c \
-		 color.c \
-		 put_pixel.c \
-		 solve_quadratic.c \
-		 sphere.c \
-		 plane.c \
-		 cone.c
+MATRIX = matrix_product.c \
+		 mult_matrix_vector.c \
+		 mult_matrix_vertex.c
 
-OBJ += $(RENDER:.c=.o)
+OBJ += $(MATRIX:.c=.o)
 
-$(OBJDIR)/%.o: $(RENDERDIR)/%.c
+$(OBJDIR)/%.o: $(MATRIXDIR)/%.c
 	$(COMPIL)
 	$(INFO)

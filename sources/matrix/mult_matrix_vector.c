@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   mult_matrix_vector.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/05 14:29:45 by jibanez           #+#    #+#             */
-/*   Updated: 2015/03/22 14:22:39 by jibanez          ###   ########.fr       */
+/*   Created: 2015/03/23 17:17:43 by jibanez           #+#    #+#             */
+/*   Updated: 2015/03/23 17:31:57 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
+#include "matrix.h"
+#include "vector.h"
 
-t_color			new_color(unsigned char r, unsigned char g, unsigned char b)
+/*
+** 00 01 02 03
+** 10 11 12 13
+** 20 21 22 23
+** 30 31 32 33
+*/
+t_vector	mult_matrix_vector(t_vector const src, t_matrix const m)
 {
-	t_color		new;
+	t_vector	dst;
 
-	new.rgb[0] = b;
-	new.rgb[1] = g;
-	new.rgb[2] = r;
-	new.rgb[3] = 0;
-	return (new);
+	dst.x = src.x * m.c[0][0] + src.y * m.c[1][0] + src.z * m.c[2][0];
+	dst.y = src.x * m.c[0][1] + src.y * m.c[1][1] + src.z * m.c[2][1];
+	dst.z = src.x * m.c[0][2] + src.y * m.c[1][2] + src.z * m.c[2][2];
+
+	return (dst);
 }
+

@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   matrix.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/05 14:29:45 by jibanez           #+#    #+#             */
-/*   Updated: 2015/03/22 14:22:39 by jibanez          ###   ########.fr       */
+/*   Created: 2015/03/22 15:11:58 by jibanez           #+#    #+#             */
+/*   Updated: 2015/03/23 17:31:18 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
+#ifndef MATRIX_H
+# define MATRIX_H
 
-t_color			new_color(unsigned char r, unsigned char g, unsigned char b)
+# include "vector.h"
+
+typedef struct s_matrix	t_matrix;
+
+struct	s_matrix
 {
-	t_color		new;
+	float	c[4][4];
+};
 
-	new.rgb[0] = b;
-	new.rgb[1] = g;
-	new.rgb[2] = r;
-	new.rgb[3] = 0;
-	return (new);
-}
+t_matrix	matrix_product(t_matrix const m1, t_matrix const m2);
+t_vertex	mult_matrix_vertex(t_vertex const src, t_matrix const m);
+t_vector	mult_matrix_vector(t_vector const src, t_matrix const m);
+
+#endif

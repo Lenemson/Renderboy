@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   cone.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/05 14:29:45 by jibanez           #+#    #+#             */
-/*   Updated: 2015/03/22 14:22:39 by jibanez          ###   ########.fr       */
+/*   Created: 2015/03/22 10:47:46 by jibanez           #+#    #+#             */
+/*   Updated: 2015/03/22 14:03:29 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 
-t_color			new_color(unsigned char r, unsigned char g, unsigned char b)
+float			intersect_cone(t_object const object, t_ray const ray)
 {
-	t_color		new;
+	float		t = 0;
 
-	new.rgb[0] = b;
-	new.rgb[1] = g;
-	new.rgb[2] = r;
-	new.rgb[3] = 0;
-	return (new);
+	(void)object;
+	(void)ray;
+
+	return (t);
 }

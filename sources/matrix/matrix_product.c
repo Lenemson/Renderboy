@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   matrix_product.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/05 14:29:45 by jibanez           #+#    #+#             */
-/*   Updated: 2015/03/22 14:22:39 by jibanez          ###   ########.fr       */
+/*   Created: 2015/03/22 15:00:00 by jibanez           #+#    #+#             */
+/*   Updated: 2015/03/23 17:31:37 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
+#include "matrix.h"
 
-t_color			new_color(unsigned char r, unsigned char g, unsigned char b)
+t_matrix		matrix_product(t_matrix const m1, t_matrix const m2)
 {
-	t_color		new;
+	t_matrix	m3;
+	int			i;
+	int			j;
 
-	new.rgb[0] = b;
-	new.rgb[1] = g;
-	new.rgb[2] = r;
-	new.rgb[3] = 0;
-	return (new);
+	i = 0;
+	j = 0;
+	while (i < 4)
+	{
+		while (j < 4)
+		{
+			m3.c[i][j] = m1.c[i][0] * m2.c[0][j]
+					   + m1.c[i][1] * m2.c[1][j]
+					   + m1.c[i][2] * m2.c[2][j]
+					   + m1.c[i][3] * m2.c[3][j];
+			j++;
+		}
+		i++;
+	}
+	return (m3);
 }

@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:58:06 by jibanez           #+#    #+#             */
-/*   Updated: 2015/03/07 14:21:39 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/03/22 13:18:22 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_env	t_env;
 typedef struct s_ray	t_ray;
 typedef struct s_sphere	t_sphere;
 typedef struct s_plane	t_plane;
+typedef struct s_cone	t_cone;
 typedef union u_shape	t_shape;
 typedef union u_color	t_color;
 typedef struct s_object	t_object;
@@ -48,10 +49,17 @@ struct					s_plane
 	t_vector			normal;
 };
 
+struct					s_cone
+{
+	float				angle;
+	t_vector			d;
+};
+
 union					u_shape
 {
 	t_sphere			sphere;
 	t_plane				plane;
+	t_cone				cone;
 };
 
 union					u_color
@@ -93,6 +101,8 @@ int						put_pixel(t_env gfx, int x, int y, int color);
 float					intersect_sphere(t_object const object,
 											t_ray const ray);
 float					intersect_plane(t_object const object,
+											t_ray const ray);
+float					intersect_cone(t_object const object,
 											t_ray const ray);
 float					solve_quadratic(float a, float b, float c);
 

@@ -6,7 +6,7 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 11:59:13 by jibanez           #+#    #+#              #
-#    Updated: 2015/03/22 10:43:24 by jibanez          ###   ########.fr        #
+#    Updated: 2015/03/22 14:55:36 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ MAINDIR = $(SRCDIR)/main
 CAMDIR = $(SRCDIR)/camera
 RENDERDIR = $(SRCDIR)/render
 VECTORDIR = $(SRCDIR)/vector
+MATRIXDIR = $(SRCDIR)/matrix
 
 # Libraries
 
@@ -54,6 +55,7 @@ include $(MAINDIR)/sources.mk
 include $(CAMDIR)/sources.mk
 include $(RENDERDIR)/sources.mk
 include $(VECTORDIR)/sources.mk
+include $(MATRIXDIR)/sources.mk
 
 POBJ = $(addprefix $(OBJDIR)/, $(OBJ))
 

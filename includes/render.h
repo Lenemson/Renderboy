@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:58:06 by jibanez           #+#    #+#             */
-/*   Updated: 2015/03/22 13:18:22 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/04/02 11:25:22 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define RENDER_H
 
 # include "camera.h"
+# include "matrix.h"
 
 typedef struct s_env	t_env;
 typedef struct s_ray	t_ray;
@@ -42,6 +43,8 @@ struct					s_sphere
 {
 	float				radius;
 	float				sqr_radius;
+	t_matrix			o2w;
+	t_matrix			w2o;
 };
 
 struct					s_plane

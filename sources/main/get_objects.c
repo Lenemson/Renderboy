@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 14:14:32 by jibanez           #+#    #+#             */
-/*   Updated: 2015/03/22 14:09:46 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/04/02 12:14:21 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ t_scene			get_objects(t_scene scene)
 	t_object	p3;
 	t_object	p4;
 	t_object	p5;
+
+	t_object	sphere;
+
+	sphere = new_sphere(new_vector(10, 10, 10), 50, new_color(100, 255, 255));
 
 	s1.pos = new_vector(200, -100, -600);
 	s1.shape.sphere.radius = 100;

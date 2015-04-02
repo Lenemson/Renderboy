@@ -6,12 +6,13 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 12:16:09 by jibanez           #+#    #+#              #
-#    Updated: 2015/02/28 14:07:09 by jibanez          ###   ########.fr        #
+#    Updated: 2015/04/02 12:13:01 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 MAIN = main.c \
-	   get_objects.c
+	   get_objects.c \
+	   new_sphere.c
 
 OBJ += $(MAIN:.c=.o)
 

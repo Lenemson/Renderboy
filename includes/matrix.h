@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/22 15:11:58 by jibanez           #+#    #+#             */
-/*   Updated: 2015/04/02 12:38:11 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/11 14:01:26 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ struct	s_matrix
 
 t_matrix	matrix_product(t_matrix const m1, t_matrix const m2);
 
+t_matrix	get_identity_matrix(void);
 t_matrix	get_trans_matrix(float tx, float ty, float tz);
 t_matrix	get_scale_matrix(float scale_x, float scale_y, float scale_z);
 t_matrix	get_rot_matrix(float rot_x, float rot_y, float rot_z);

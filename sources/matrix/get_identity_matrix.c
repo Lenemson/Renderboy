@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_product.c                                   :+:      :+:    :+:   */
+/*   get_identity_matrix.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/22 15:00:00 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/11 14:24:48 by jibanez          ###   ########.fr       */
+/*   Created: 2015/05/11 13:56:11 by jibanez           #+#    #+#             */
+/*   Updated: 2015/05/11 16:38:50 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
 
 /*
-** 00 01 02 03
-** 10 11 12 13
-** 20 21 22 23
-** 30 31 32 33
+** 1 0 0 0
+** 0 1 0 0
+** 0 0 1 0
+** 0 0 0 1
 */
-t_matrix		matrix_product(t_matrix const m1, t_matrix const m2)
+t_matrix		get_identity_matrix(void)
 {
-	t_matrix	m3;
-	int			i;
-	int			j;
+	t_matrix	new;
 
-	i = 0;
-	while (i < 4)
-	{
-		j = 0;
-		while (j < 4)
-		{
-			m3.m[i][j] = m1.m[i][0] * m2.m[0][j]
-					   + m1.m[i][1] * m2.m[1][j]
-					   + m1.m[i][2] * m2.m[2][j]
-					   + m1.m[i][3] * m2.m[3][j];
-			j++;
-		}
-		i++;
-	}
-	return (m3);
+	new.m[0][0] = 1;
+	new.m[0][1] = 0;
+	new.m[0][2] = 0;
+	new.m[0][3] = 0;
+	new.m[1][0] = 0;
+	new.m[1][1] = 1;
+	new.m[1][2] = 0;
+	new.m[1][3] = 0;
+	new.m[2][0] = 0;
+	new.m[2][1] = 0;
+	new.m[2][2] = 1;
+	new.m[2][3] = 0;
+	new.m[3][0] = 0;
+	new.m[3][1] = 0;
+	new.m[3][2] = 0;
+	new.m[3][3] = 1;
+	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:58:06 by jibanez           #+#    #+#             */
-/*   Updated: 2015/04/02 11:25:22 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/10 15:53:50 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ struct					s_sphere
 {
 	float				radius;
 	float				sqr_radius;
-	t_matrix			o2w;
-	t_matrix			w2o;
 };
 
 struct					s_plane
@@ -73,6 +71,8 @@ union					u_color
 
 struct					s_object
 {
+	t_matrix			o2w;
+	t_matrix			w2o;
 	t_vertex			pos;
 	t_shape				shape;
 	t_color				color;

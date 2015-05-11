@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/02 11:49:26 by jibanez           #+#    #+#             */
-/*   Updated: 2015/04/02 12:42:36 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/10 15:04:48 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ t_matrix		get_rot_matrix(float rot_x, float rot_y, float rot_z)
 	new = matrix_product(rx, ry);
 	new = matrix_product(new, rz);
 
+	/*
 	printf("rot x\n");
 	for (int i = 0; i < 4; i++)
 	{
@@ -128,7 +129,7 @@ t_matrix		get_rot_matrix(float rot_x, float rot_y, float rot_z)
 			printf("%f    ", new.m[i][j]);
 		printf("\n");
 	}
-	printf("\n");
+	printf("\n");*/
 
 	return (new);
 }

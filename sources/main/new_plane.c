@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plane.c                                            :+:      :+:    :+:   */
+/*   new_plane.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/05 16:03:57 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/13 14:37:55 by jibanez          ###   ########.fr       */
+/*   Created: 2015/05/11 16:50:15 by jibanez           #+#    #+#             */
+/*   Updated: 2015/05/13 13:38:16 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 
-float		intersect_plane(t_object const object, t_ray const ray)
+t_object		new_plane(t_vertex pos, float ax, float ay, float az)
 {
-	float	b;
-	float	c;
+	t_object	object;
+	t_matrix	t;
+	t_matrix	r;
 
-	(void)object;
-	/*b = ray.dir.z;
-	c = ray.o.z;
-	return (solve_quadratic(0, b, c));*/
-	b = ray.dir.z;
-	c = -(ray.o.z);
-	return (c / b);
+	t = get_trans_matrix(pos.x, pos.y, pos.z);
+	r = get_rot_matrix(ax, ay, az);
+	object.o2w = matrix_product(t, r);
+	t = get_trans_matrix(-pos.x, -pos.y, -pos.z);
+	r = get_rot_matrix(-ax, -ay, -az);
+	object.w2o = matrix_product(r, t);
+	object.intersect = intersect_plane;
+	return (object);
 }

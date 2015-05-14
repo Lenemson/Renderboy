@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/02 11:49:26 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/10 15:04:48 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/14 10:05:15 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,22 @@
 
 #include <stdio.h>//////
 
+/*
+** 00 01 02 03
+** 10 11 12 13
+** 20 21 22 23
+** 30 31 32 33
+*/
 static	t_matrix	rot_x_matrix(float rot_x)
 {
 	t_matrix		r;
 
-	rot_x = ((rot_x / 2) * PI) / 180.0;
-	r.m[0][0] = 1;
-	r.m[0][1] = 0;
-	r.m[0][2] = 0;
-	r.m[0][3] = 0;
-	r.m[1][0] = 0;
+	r = get_identity_matrix();
+	rot_x = rot_x * (PI / 180.0);
 	r.m[1][1] = cos(rot_x);
-	r.m[1][2] = sin(rot_x);
-	r.m[1][3] = 0;
-	r.m[2][0] = 0;
-	r.m[2][1] = -sin(rot_x);
+	r.m[1][2] = -sin(rot_x);
+	r.m[2][1] = sin(rot_x);
 	r.m[2][2] = cos(rot_x);
-	r.m[2][3] = 0;
-	r.m[3][0] = 0;
-	r.m[3][1] = 0;
-	r.m[3][2] = 0;
-	r.m[3][3] = 1;
 	return (r);
 }
 
@@ -44,23 +39,12 @@ static	t_matrix	rot_y_matrix(float rot_y)
 {
 	t_matrix		r;
 
-	rot_y = ((rot_y / 2) * PI) / 180.0;
+	r = get_identity_matrix();
+	rot_y = rot_y * (PI / 180.0);
 	r.m[0][0] = cos(rot_y);
-	r.m[0][1] = 0;
-	r.m[0][2] = -sin(rot_y);
-	r.m[0][3] = 0;
-	r.m[1][0] = 0;
-	r.m[1][1] = 1;
-	r.m[1][2] = 0;
-	r.m[1][3] = 0;
-	r.m[2][0] = sin(rot_y);
-	r.m[2][1] = 0;
+	r.m[0][2] = sin(rot_y);
+	r.m[2][0] = -sin(rot_y);
 	r.m[2][2] = cos(rot_y);
-	r.m[2][3] = 0;
-	r.m[3][0] = 0;
-	r.m[3][1] = 0;
-	r.m[3][2] = 0;
-	r.m[3][3] = 1;
 	return (r);
 }
 
@@ -68,25 +52,15 @@ static	t_matrix	rot_z_matrix(float rot_z)
 {
 	t_matrix		r;
 
-	rot_z = ((rot_z / 2) * PI) / 180.0;
+	r = get_identity_matrix();
+	rot_z = rot_z * (PI / 180.0);
 	r.m[0][0] = cos(rot_z);
 	r.m[0][1] = -sin(rot_z);
-	r.m[0][2] = 0;
-	r.m[0][3] = 0;
-	r.m[1][0] = -sin(rot_z);
+	r.m[1][0] = sin(rot_z);
 	r.m[1][1] = cos(rot_z);
-	r.m[1][2] = 0;
-	r.m[1][3] = 0;
-	r.m[2][0] = 0;
-	r.m[2][1] = 0;
-	r.m[2][2] = 1;
-	r.m[2][3] = 0;
-	r.m[3][0] = 0;
-	r.m[3][1] = 0;
-	r.m[3][2] = 0;
-	r.m[3][3] = 1;
 	return (r);
 }
+
 t_matrix		get_rot_matrix(float rot_x, float rot_y, float rot_z)
 {
 	t_matrix	new;

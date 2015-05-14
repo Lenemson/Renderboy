@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sphere.c                                           :+:      :+:    :+:   */
+/*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/24 15:46:47 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/14 14:18:21 by jibanez          ###   ########.fr       */
+/*   Created: 2015/05/14 11:05:17 by jibanez           #+#    #+#             */
+/*   Updated: 2015/05/14 14:19:00 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
+#include <math.h>
 
-float			intersect_sphere(t_ray const ray)
+float		intersect_cylinder(t_ray const ray)
 {
-	float		a;
-	float		b;
-	float		c;
+	float	a;
+	float	b;
+	float	c;
 
-	a = dot_product(ray.dir, ray.dir);
-	b = 2 * dot_product(ray.dir, ray.o);
-	c = dot_product(ray.o, ray.o) - 1;
+	a = pow(ray.dir.x, 2) + pow(ray.dir.z, 2);
+	b = (2 * ray.o.x * ray.dir.x) + (2 * ray.o.z * ray.dir.z);
+	c = pow(ray.o.x, 2) + pow(ray.o.z, 2) - 1;
 	return (solve_quadratic(a, b, c));
 }

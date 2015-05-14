@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:58:06 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/10 15:53:50 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/14 14:18:05 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,30 +39,6 @@ struct					s_ray
 	float				t;
 };
 
-struct					s_sphere
-{
-	float				radius;
-	float				sqr_radius;
-};
-
-struct					s_plane
-{
-	t_vector			normal;
-};
-
-struct					s_cone
-{
-	float				angle;
-	t_vector			d;
-};
-
-union					u_shape
-{
-	t_sphere			sphere;
-	t_plane				plane;
-	t_cone				cone;
-};
-
 union					u_color
 {
 	unsigned int		val;
@@ -74,9 +50,8 @@ struct					s_object
 	t_matrix			o2w;
 	t_matrix			w2o;
 	t_vertex			pos;
-	t_shape				shape;
 	t_color				color;
-	float				(*intersect)(t_object const object, t_ray const ray);
+	float				(*intersect)(t_ray const ray);
 };
 
 struct					s_scene
@@ -100,13 +75,10 @@ t_color					new_color(unsigned char r,
 									unsigned char g,
 									unsigned char b);
 int						put_pixel(t_env gfx, int x, int y, int color);
-
-float					intersect_sphere(t_object const object,
-											t_ray const ray);
-float					intersect_plane(t_object const object,
-											t_ray const ray);
-float					intersect_cone(t_object const object,
-											t_ray const ray);
+float					intersect_sphere(t_ray const ray);
+float					intersect_plane(t_ray const ray);
+float					intersect_cylinder(t_ray const ray);
+float					intersect_cone(t_ray const ray);
 float					solve_quadratic(float a, float b, float c);
 
 #endif

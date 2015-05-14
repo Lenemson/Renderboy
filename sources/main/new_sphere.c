@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/22 14:04:29 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/13 13:35:46 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/14 13:36:35 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 t_object		new_sphere(t_vertex pos, float radius)
 {
 	t_object	object;
-	t_matrix	t;
 	t_matrix	s;
+	t_matrix	t;
 
-	t = get_trans_matrix(pos.x, pos.y, pos.z);
 	s = get_scale_matrix(radius, radius, radius);
+	t = get_trans_matrix(pos.x, pos.y, pos.z);
 	object.o2w = matrix_product(t, s);
 	t = get_trans_matrix(-pos.x, -pos.y, -pos.z);
 	s = get_scale_matrix(1 / radius, 1 / radius, 1 / radius);

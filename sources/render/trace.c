@@ -6,13 +6,13 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 16:09:01 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/14 14:19:44 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/15 14:29:33 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 
-int			trace(t_object object[100], int const n, t_ray const ray)
+t_color			trace(t_object object[100], int const n, t_ray const ray)
 {
 	t_object	hit;
 	t_ray		o_ray;
@@ -35,5 +35,5 @@ int			trace(t_object object[100], int const n, t_ray const ray)
 		}
 		i++;
 	}
-	return (hit.color.val);
+	return (hit.color);
 }

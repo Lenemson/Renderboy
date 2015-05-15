@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:58:06 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/14 14:18:05 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/15 14:58:46 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ struct					s_env
 {
 	void				*mlx;
 	void				*win;
+	void				*img;
+	char				*img_addr;
+	int					pixel_size;
+	int					line_size;
+	int					endian;
+	void				(*put_pixel)(t_env gfx, int x, int y, t_color color);
 };
 
 struct					s_ray
@@ -64,7 +70,7 @@ struct					s_scene
 
 t_env					init_gfx(float res_x, float res_y, char *win_name);
 int						render(t_scene *scene);
-int						trace(t_object object[100],
+t_color					trace(t_object object[100],
 								int const n,
 								t_ray const ray);
 t_ray					new_ray(t_vertex o, t_vector dir);
@@ -74,7 +80,13 @@ t_ray					construct_ray(t_camera const camera,
 t_color					new_color(unsigned char r,
 									unsigned char g,
 									unsigned char b);
-int						put_pixel(t_env gfx, int x, int y, int color);
+int						expose(t_scene *scene);
+void					put_pixel(t_env gfx, int x, int y, t_color color);
+void					put_pixel_l_endian(t_env gfx,
+											int x, int y, t_color color);
+void					put_pixel_b_endian(t_env gfx,
+											int x, int y, t_color color);
+void					put_pixel(t_env gfx, int x, int y, t_color color);
 float					intersect_sphere(t_ray const ray);
 float					intersect_plane(t_ray const ray);
 float					intersect_cylinder(t_ray const ray);

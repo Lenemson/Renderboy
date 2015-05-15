@@ -6,7 +6,7 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 11:59:13 by jibanez           #+#    #+#              #
-#    Updated: 2015/03/22 14:55:36 by jibanez          ###   ########.fr        #
+#    Updated: 2015/05/15 13:30:26 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ INFO = @echo "Compile $< to $@ $(OK)"
 
 # Compilation / Linking
 
-CC = gcc
+CC = clang
 CFLAGS = -Wall -Wextra -Werror
 OFLAGS =
 IFLAGS = -I$(INCDIR) -I$(LIBFT)/includes

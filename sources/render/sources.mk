@@ -6,7 +6,7 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 12:16:09 by jibanez           #+#    #+#              #
-#    Updated: 2015/05/14 12:22:06 by jibanez          ###   ########.fr        #
+#    Updated: 2015/05/15 14:24:19 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ RENDER = init_gfx.c \
 		 sphere.c \
 		 plane.c \
 		 cylinder.c \
-		 cone.c
+		 cone.c \
+		 expose.c
 
 OBJ += $(RENDER:.c=.o)
 

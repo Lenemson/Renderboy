@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 14:07:26 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/15 14:41:39 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/24 10:53:36 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int				render(t_scene *scene)
 		while (x < scene->camera.res_x)
 		{
 			ray = construct_ray(scene->camera, up, x);
-			put_pixel(scene->gfx, x, y,
-					trace(scene->object, scene->n_objects, ray));
+			put_pixel(scene->gfx, x, y, trace(scene, ray));
 			x++;
 		}
 		x = 0;

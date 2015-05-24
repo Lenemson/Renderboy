@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 14:26:34 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/28 15:42:44 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/24 12:55:40 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,14 @@ t_ray			construct_ray(t_camera const camera,
 	ray.t = 0;
 	return (ray);
 }
+
+t_ray			mult_matrix_ray(t_ray const src, t_matrix const m)
+{
+	t_ray	dst;
+
+	dst.t = src.t;
+	dst.o = mult_matrix_vertex(src.o, m);
+	dst.dir = mult_matrix_vector(src.dir, m);
+	return (dst);
+}
+

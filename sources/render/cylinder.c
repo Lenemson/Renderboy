@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/14 11:05:17 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/14 14:19:00 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/24 13:13:33 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,14 @@ float		intersect_cylinder(t_ray const ray)
 	b = (2 * ray.o.x * ray.dir.x) + (2 * ray.o.z * ray.dir.z);
 	c = pow(ray.o.x, 2) + pow(ray.o.z, 2) - 1;
 	return (solve_quadratic(a, b, c));
+}
+
+t_vector	cylinder_normal(t_vertex const p)
+{
+	t_vector	normal;
+
+	normal.x = p.x;
+	normal.y = 0;
+	normal.z = p.z;
+	return (normal);
 }

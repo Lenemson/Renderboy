@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 14:14:32 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/14 14:13:06 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/24 16:20:44 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,55 +17,48 @@
 
 t_scene			get_objects(t_scene scene)
 {
-	t_object	s1;
-	t_object	p1;
-	t_object	p2;
-	t_object	p3;
-	t_object	p4;
-	t_object	p5;
-	t_object	c1;
-	t_object	c2;
-	t_object	c3;
-	t_object	c4;
-	t_object	c01;
+	t_light		a;
+	t_object	b;
+	t_object	c;
+	t_object	d;
+	t_object	e;
+	t_object	f;
+	//t_light		g;
 
+	/* Lights */
+	a.pos = new_vector(0, 0, 0);
+	a.color = new_color(255, 255, 255);
+	//g.pos = new_vector(200, 300, 0);
+	//g.color = new_color(255, 255, 255);
+	/**/
+	scene.n_lights = 1;
+	scene.light[0] = a;
+	//scene.light[1] = g;
 	/* Spheres */
-	s1 = new_sphere(new_vector(-350, 0, -450), 100);
-	s1.color = new_color(255, 255, 255);
+	b = new_sphere(new_vector(0, 0, -400), 100);
+	b.color = new_color(170, 57, 57);
+	b.diffuse_color = new_vector(1, 1, 1);
 	/* Planes */
-	p1 = new_plane(new_vector(-300, 0, -100), 0, 90, 0);
-	p1.color = new_color(0, 255, 0);
-	p2 = new_plane(new_vector(300, 0, -100), 0, -90, 0);
-	p2.color = new_color(0, 255, 0);
-	p3 = new_plane(new_vector(0, 0, -800), 0, 0, 0);
-	p3.color = new_color(0, 255, 255);
-	p4 = new_plane(new_vector(0, 300, 0), 90, 0, 0);
-	p4.color = new_color(255, 255, 0);
-	p5 = new_plane(new_vector(0, -300, 0), -90, 0, 0);
-	p5.color = new_color(255, 255, 0);
+	c = new_plane(new_vector(0, 0, -500), 0, 0, 0);
+	c.color = new_color(34, 102, 102);
+	c.diffuse_color = new_vector(1, 1, 1);
+	d = new_plane(new_vector(0, -100, 0), 90, 0, 0);
+	d.color = new_color(34, 102, 102);
+	d.diffuse_color = new_vector(1, 1, 1);
 	/* Cylinders */
-	c1 = new_cylinder(new_vector(-300, 0, -440), 15, new_vector(10, 0, 25));
-	c1.color = new_color(100, 25, 150);
-	c2 = new_cylinder(new_vector(0, 150, -700), 50, new_vector(0, 0, 90));
-	c2.color = new_color(100, 25, 150);
-	c3 = new_cylinder(new_vector(0, 0, -700), 50, new_vector(0, 0, 90));
-	c3.color = new_color(100, 25, 150);
-	c4 = new_cylinder(new_vector(0, -150, -700), 50, new_vector(0, 0, 90));
-	c4.color = new_color(100, 25, 150);
+	e = new_cylinder(new_vector(-200, 0, -300), 25, new_vector(0, 0, 30));
+	e.color = new_color(170, 132, 57);
+	e.diffuse_color = new_vector(1, 1, 1);
 	/* Cones */
-	c01 = new_cone(new_vector(0, 0, -600), 0.5, new_vector(0, 0, 10));
-	c01.color = new_color(111, 0, 255);
-	scene.n_objects = 11;
-	scene.object[0] = s1;
-	scene.object[1] = p1;
-	scene.object[2] = p2;
-	scene.object[3] = p3;
-	scene.object[4] = p4;
-	scene.object[5] = p5;
-	scene.object[6] = c1;
-	scene.object[7] = c2;
-	scene.object[8] = c3;
-	scene.object[9] = c4;
-	scene.object[10] = c01;
+	f = new_cone(new_vector(200, 0, -400), 0.5, new_vector(0, 0, 30));
+	f.color = new_color(170, 132, 57);
+	f.diffuse_color = new_vector(1, 1, 1);
+	/**/
+	scene.n_objects = 5;
+	scene.object[0] = b;
+	scene.object[1] = c;
+	scene.object[2] = d;
+	scene.object[3] = e;
+	scene.object[4] = f;
 	return (scene);
 }

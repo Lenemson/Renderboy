@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/23 17:27:41 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/11 15:46:31 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/24 12:22:40 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ t_vertex		mult_matrix_vertex(t_vertex const src, t_matrix const m)
 		+ m.m[2][3];
 	w = src.x * m.m[3][0] + src.y * m.m[3][1] + src.z * m.m[3][2]
 		+ m.m[3][3];
-	/*if (w != 1 && w != 0)
+	if (w != 1 && w != 0)
 	{
 		dst.x /= w;
 		dst.y /= w;
 		dst.z /= w;
-	}*/
+	}
 	return (dst);
 }
 

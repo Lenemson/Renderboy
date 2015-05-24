@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 16:31:40 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/15 14:39:44 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/24 11:06:00 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 #include "mlx.h"
 #include <stdlib.h>
 
-int				keybinds(int keycode)
+static int		keybinds(int keycode, t_scene *scene)
 {
 	if (keycode == 53)
+	{
+		mlx_destroy_image(scene->gfx.mlx, scene->gfx.img);
+		mlx_destroy_window(scene->gfx.mlx, scene->gfx.win);
 		exit(0);
+	}
 	return (0);
 }
 

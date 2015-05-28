@@ -6,11 +6,12 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/14 10:39:30 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/23 16:09:48 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/28 14:39:10 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
+#include "libft.h"
 
 t_object		new_cylinder(t_vertex pos, float radius, t_vector rot)
 {
@@ -32,4 +33,19 @@ t_object		new_cylinder(t_vertex pos, float radius, t_vector rot)
 	object.intersect = intersect_cylinder;
 	object.get_normal = cylinder_normal;
 	return (object);
+}
+
+t_object		get_cylinder(char **object, int id)
+{
+	t_object	cylinder;
+
+	cylinder = new_cylinder(
+		new_vector(ft_atoi(object[1]), ft_atoi(object[2]), ft_atoi(object[3])),
+		ft_atoi(object[4]),
+		new_vector(ft_atoi(object[5]), ft_atoi(object[6]), ft_atoi(object[7])));
+	cylinder.color = new_color(
+		ft_atoi(object[8]), ft_atoi(object[9]), ft_atoi(object[10]));
+	cylinder.diffuse_color = new_vector(1, 1, 1);
+	cylinder.id = id;
+	return (cylinder);
 }

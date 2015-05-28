@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:20:45 by jibanez           #+#    #+#             */
-/*   Updated: 2015/02/28 15:04:48 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/28 15:07:50 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "vector.h"
 
-# define SCR_WIDTH 800
-# define SCR_HEIGHT 600
+# define SCR_WIDTH 1024
+# define SCR_HEIGHT 768
 
 struct			s_camera
 {

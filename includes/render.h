@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:58:06 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/24 16:19:10 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/28 12:03:23 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ union					u_color
 
 struct					s_object
 {
+	int					id;
 	t_matrix			o2w;
 	t_matrix			w2o;
 	t_matrix			no2w;

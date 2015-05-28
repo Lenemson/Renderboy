@@ -6,11 +6,13 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/22 14:04:29 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/23 18:28:41 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/28 14:34:27 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
+#include "libft.h"
+
 
 t_object		new_sphere(t_vertex pos, float radius)
 {
@@ -29,4 +31,18 @@ t_object		new_sphere(t_vertex pos, float radius)
 	object.intersect = intersect_sphere;
 	object.get_normal = sphere_normal;
 	return (object);
+}
+
+t_object		get_sphere(char **object, int id)
+{
+	t_object	sphere;
+
+	sphere = new_sphere(
+		new_vector(ft_atoi(object[1]), ft_atoi(object[2]), ft_atoi(object[3])),
+		ft_atoi(object[4]));
+	sphere.color = new_color(
+		ft_atoi(object[5]), ft_atoi(object[6]), ft_atoi(object[7]));
+	sphere.diffuse_color = new_vector(1, 1, 1);
+	sphere.id = id;
+	return (sphere);
 }

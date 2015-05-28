@@ -6,12 +6,13 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 16:31:40 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/24 11:06:00 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/28 13:52:17 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raytracer.h"
 #include "mlx.h"
+#include "libft.h"
 #include <stdlib.h>
 
 static int		keybinds(int keycode, t_scene *scene)
@@ -25,11 +26,19 @@ static int		keybinds(int keycode, t_scene *scene)
 	return (0);
 }
 
-int				main(void)
+static int		usage()
+{
+	ft_putendl("usage: ./raytracer scene_file");
+	return (1);
+}
+
+int				main(int ac, char **av)
 {
 	t_scene		scene;
 
-	scene = get_objects(scene);
+	if (ac < 2)
+		return (usage());
+	scene = get_objects(scene, av[1]);
 	scene.camera = get_new_camera(SCR_WIDTH, SCR_HEIGHT, 90);
 	scene.gfx = init_gfx(SCR_WIDTH, SCR_HEIGHT, "raytracer");
 	render(&scene);

@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 14:14:32 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/28 15:06:19 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/29 10:55:50 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ t_scene			get_objects(t_scene scene, char *scene_file)
 		id++;
 	}
 	close(fd);
-	ft_putnbr(scene.object[0].color.x);
 	return (scene);
 }
 

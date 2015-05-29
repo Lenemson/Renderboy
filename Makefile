@@ -6,11 +6,11 @@
 #    By: jibanez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/03 11:59:13 by jibanez           #+#    #+#              #
-#    Updated: 2015/05/15 13:30:26 by jibanez          ###   ########.fr        #
+#    Updated: 2015/05/29 13:05:47 by jibanez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = renderboy
+NAME = rtv1
 
 # Directories
 

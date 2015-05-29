@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:20:45 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/28 15:07:50 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/29 12:22:31 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ struct			s_camera
 	float		res_y;
 	float		x_indent;
 	float		y_indent;
+	int			on;
 };
 
 typedef struct s_camera	t_camera;

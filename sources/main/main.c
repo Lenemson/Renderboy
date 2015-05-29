@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 16:31:40 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/28 13:52:17 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/29 12:31:42 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ int				main(int ac, char **av)
 
 	if (ac < 2)
 		return (usage());
+	scene.camera.on = 0;
 	scene = get_objects(scene, av[1]);
-	scene.camera = get_new_camera(SCR_WIDTH, SCR_HEIGHT, 90);
+	if (scene.camera.on == 0)
+		scene.camera = get_new_camera(SCR_WIDTH, SCR_HEIGHT, 90);
 	scene.gfx = init_gfx(SCR_WIDTH, SCR_HEIGHT, "raytracer");
 	render(&scene);
 	mlx_put_image_to_window(scene.gfx.mlx, scene.gfx.win,

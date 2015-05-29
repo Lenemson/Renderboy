@@ -6,15 +6,13 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/02 11:49:26 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/14 13:58:55 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/29 13:37:45 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "matrix.h"
 #define PI 3.14159265
-
-#include <stdio.h>//////
 
 /*
 ** 00 01 02 03
@@ -61,50 +59,17 @@ static	t_matrix	rot_z_matrix(float rot_z)
 	return (r);
 }
 
-t_matrix		get_rot_matrix(float rot_x, float rot_y, float rot_z)
+t_matrix			get_rot_matrix(float rot_x, float rot_y, float rot_z)
 {
-	t_matrix	new;
-	t_matrix	rx;
-	t_matrix	ry;
-	t_matrix	rz;
+	t_matrix		new;
+	t_matrix		rx;
+	t_matrix		ry;
+	t_matrix		rz;
 
 	rx = rot_x_matrix(rot_x);
 	ry = rot_y_matrix(rot_y);
 	rz = rot_z_matrix(rot_z);
 	new = matrix_product(rx, ry);
 	new = matrix_product(new, rz);
-
-	/*
-	printf("rot x\n");
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-			printf("%f    ", rx.m[i][j]);
-		printf("\n");
-	}
-	printf("rot y\n");
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-			printf("%f    ", ry.m[i][j]);
-		printf("\n");
-	}
-	printf("rot z\n");
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-			printf("%f    ", rz.m[i][j]);
-		printf("\n");
-	}
-	printf("rot\n");
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-			printf("%f    ", new.m[i][j]);
-		printf("\n");
-	}
-	printf("\n");*/
-
 	return (new);
 }
-

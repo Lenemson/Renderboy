@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/22 10:47:46 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/24 15:31:50 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/29 13:36:42 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ float			intersect_cone(t_ray const ray)
 	return (solve_quadratic(a, b, c));
 }
 
-t_vector	cone_normal(t_vertex const p)
+t_vector		cone_normal(t_vertex const p)
 {
 	t_vector	normal;
 

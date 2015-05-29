@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/22 15:11:58 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/23 13:49:29 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/29 13:38:58 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct s_matrix	t_matrix;
 
-struct	s_matrix
+struct		s_matrix
 {
 	float	m[4][4];
 };

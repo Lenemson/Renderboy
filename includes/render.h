@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:58:06 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/28 12:03:23 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/29 13:30:10 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include "camera.h"
 # include "matrix.h"
 # include "vector.h"
-
-#include <stdio.h>/////
 
 typedef struct s_env	t_env;
 typedef struct s_ray	t_ray;

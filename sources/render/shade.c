@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/23 13:24:45 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/29 11:57:25 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/29 13:37:19 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_vector		shade(t_scene *scene, t_object hit, t_ray ray, float t)
 	isec = vector_sum(mult_vector(ray.dir, t), ray.o);
 	normal = hit.get_normal(isec);
 	if (dot_product(normalize(ray.dir), normalize(normal)) > 0)
-			normal = mult_vector(normal, -1);
+		normal = mult_vector(normal, -1);
 	isec = mult_matrix_vertex(isec, hit.o2w);
 	normal = mult_matrix_vector(normal, hit.no2w);
 	i = 0;
@@ -73,4 +73,3 @@ t_vector		shade(t_scene *scene, t_object hit, t_ray ray, float t)
 	}
 	return (color);
 }
-

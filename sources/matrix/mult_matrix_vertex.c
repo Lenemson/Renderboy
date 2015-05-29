@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/23 17:27:41 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/24 12:22:40 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/29 13:36:25 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,3 @@ t_vertex		mult_matrix_vertex(t_vertex const src, t_matrix const m)
 	}
 	return (dst);
 }
-

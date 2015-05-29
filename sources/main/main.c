@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 16:31:40 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/29 12:31:42 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/29 13:49:13 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int		keybinds(int keycode, t_scene *scene)
 	return (0);
 }
 
-static int		usage()
+static int		usage(void)
 {
 	ft_putendl("usage: ./raytracer scene_file");
 	return (1);

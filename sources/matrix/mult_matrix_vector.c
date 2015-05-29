@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/23 17:17:43 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/11 14:36:55 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/29 13:36:17 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,3 @@ t_vector	mult_matrix_vector(t_vector const src, t_matrix const m)
 	dst.z = src.x * m.m[2][0] + src.y * m.m[2][1] + src.z * m.m[2][2];
 	return (dst);
 }
-

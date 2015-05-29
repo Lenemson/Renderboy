@@ -6,7 +6,7 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 14:14:32 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/29 13:25:05 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/29 13:54:24 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static t_scene	get_light(t_scene scene, char **object)
 	return (scene);
 }
 
-static t_camera	get_camera(char	**object, float res_x, float res_y)
+static t_camera	get_camera(float res_x, float res_y, char **object)
 {
 	t_camera	camera;
 	t_matrix	rot;
@@ -94,16 +94,14 @@ t_scene			get_objects(t_scene scene, char *scene_file)
 		if (ft_strequ(object[0], "light"))
 			scene = get_light(scene, object);
 		else if (ft_strequ(object[0], "camera"))
-			scene.camera = get_camera(object, SCR_WIDTH, SCR_HEIGHT);
+			scene.camera = get_camera(SCR_WIDTH, SCR_HEIGHT, object);
 		else
 			scene = get_shapes(scene, object, id);
 		free_tab(object);
 		ft_strdel(&line);
 		id++;
 	}
+	ft_strdel(&line);
 	close(fd);
 	return (scene);
 }
-
-
-

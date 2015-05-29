@@ -6,13 +6,12 @@
 /*   By: jibanez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/22 14:04:29 by jibanez           #+#    #+#             */
-/*   Updated: 2015/05/28 14:34:27 by jibanez          ###   ########.fr       */
+/*   Updated: 2015/05/29 13:34:17 by jibanez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 #include "libft.h"
-
 
 t_object		new_sphere(t_vertex pos, float radius)
 {
